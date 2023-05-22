@@ -1,0 +1,7 @@
+- Install the Arduino IDE 
+- Recreate the wiring setup described in the README file
+- Put the setup in an enclosed space so the actuators can impact the readings
+- Flash the Arduinos
+- Isolate all electric components except the humidity sensor from the humidifier water droplets
+- Prepare the fire extinguisher considering the safety hazard of mixing electricity and water.
+- Power on the system
