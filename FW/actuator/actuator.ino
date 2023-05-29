@@ -1,5 +1,5 @@
-#define HEATER_PIN 4 // pin 4 - output 2 - heater
-#define HUM_PIN 7 // pin 7 - output 1 - humidifier
+#define HEATER_PIN A0 // pin 4 - output 2 - heater
+#define HUM_PIN A1 // pin 7 - output 1 - humidifier
 
 void setup() {
   Serial.begin(9600);

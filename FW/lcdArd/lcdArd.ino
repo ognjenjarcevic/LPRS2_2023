@@ -4,13 +4,13 @@
 #define UART_TRANSMIT 1
 
 // Min and max desired temperature
-#define TEMP_MIN 60
+#define TEMP_MIN 20
 #define TEMP_MAX 100
 int8_t desiredTemp = TEMP_MIN;
 
 // Min and max desired humidity
 #define HUM_MIN 10
-#define HUM_MAX 30
+#define HUM_MAX 50
 int8_t desiredHum = HUM_MIN;
 
 // Sets the pins used for communicating with the display
@@ -100,7 +100,7 @@ void decideActuator()
 {
   actInstr = 0;
   // Uninitialized or somethings wrong, don't turn on anything :(
-  if (currentTemp == 0 || currentHum == 0)
+  if (currentTemp == 0 && currentHum == 0)
   {
     actInstr = 0;
   }
@@ -142,8 +142,8 @@ void loop() {
     byte data[2]; // Allocate an array to store the received bytes
     int bytesRead = Serial.readBytes(data, 2); // Read up to 2 bytes from the serial buffer
 
-    currentTemp = (int8_t)data[0] * 3;
-    currentHum = (int8_t)data[1] * 2;
+    currentTemp = (int8_t)data[0];
+    currentHum = (int8_t)data[1];
   
     lcdUpdate();
     decideActuator();
